@@ -10,27 +10,27 @@
  */
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
  */
 final class SITest extends AbstractFilterTest
 {
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported symbol "X".$#
-     */
     public function testInvalidSymbol1()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported symbol "X".$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'X');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported symbol "XYZ".$#
-     */
     public function testInvalidSymbol2()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported symbol "XYZ".$#');
+
         $this->callFilter($this->getEnvironment(), 2, 'XYZ');
     }
 

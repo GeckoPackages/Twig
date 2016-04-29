@@ -30,7 +30,7 @@ See below for details.
 
 ### Requirements
 
-PHP 5.4 (PHP7 supported). Optional HHVM support >= 3.9.
+PHP 5.4 (PHP 7 supported). Optional HHVM support >= 3.9.
 
 ### Install
 
@@ -375,5 +375,5 @@ Contributions are welcome!
 This project follows [Semantic Versioning](http://semver.org/).
 
 <sub>Kindly note:
-We do not keep a backwards compatible promise on the tests and tooling (such as document generation) of the project itself 
+We do not keep a backwards compatible promise on the tests and tooling (such as document generation) of the project itself
 nor the content and/or format of exception messages.</sub>

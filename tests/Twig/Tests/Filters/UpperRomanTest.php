@@ -10,36 +10,35 @@
  */
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
  */
 final class UpperRomanTest extends AbstractFilterTest
 {
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported match mode string\#invalid.$#
-     */
     public function testInvalidMatchModeString()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported match mode string\#invalid.$#');
+
         $this->callFilter('XX', 'invalid');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported match mode stdClass.$#
-     */
     public function testInvalidMatchModeObject()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported match mode stdClass.$#');
+
         $this->callFilter('XX', new \stdClass());
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Invalid input, expected string got \"stdClass\".$#
-     */
     public function testInvalidInputObject()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Invalid input, expected string got \"stdClass\".$#');
+
         $this->callFilter(new \stdClass(), 'strict');
     }
 }

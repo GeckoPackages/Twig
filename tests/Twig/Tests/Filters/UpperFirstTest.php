@@ -10,6 +10,8 @@
  */
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
@@ -21,12 +23,11 @@ final class UpperFirstTest extends AbstractFilterTest
         $this->callFilter($this->getEnvironment(), null);
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Invalid input, expected string got \"stdClass\".$#
-     */
     public function testUpperFirstInvalidInput()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Invalid input, expected string got \"stdClass\".$#');
+
         $this->callFilter($this->getEnvironment(), new \stdClass());
     }
 }

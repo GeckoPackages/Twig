@@ -12,6 +12,8 @@
 use GeckoPackages\Twig\Text\RomanNumeralsTrait;
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
@@ -20,12 +22,11 @@ final class RomanNumeralsTraitTest extends \PHPUnit_Framework_TestCase
 {
     use RomanNumeralsTrait;
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported match mode string\#__invalid__.$#
-     */
     public function testInvalid()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported match mode string\#__invalid__.$#');
+
         $this->numeralRomanMatchCallBack('xx', '__invalid__', function () {
         });
     }

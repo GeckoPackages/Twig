@@ -10,27 +10,27 @@
  */
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
  */
 final class AgeTest extends AbstractFilterTest
 {
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Accuracy must be string, got NULL\#.$#
-     */
     public function testFilterInvalidAccType()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Accuracy must be string, got NULL\#.$#');
+
         $this->callFilter($this->getEnvironment(), time(), null);
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Accuracy must be any of \"y, d, h, i, s\", got "invalid".$#
-     */
     public function testFilterInvalidAccValue()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Accuracy must be any of \"y, d, h, i, s\", got "invalid".$#');
+
         $this->callFilter($this->getEnvironment(), time(), 'invalid');
     }
 

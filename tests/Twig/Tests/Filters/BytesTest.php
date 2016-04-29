@@ -10,63 +10,59 @@
  */
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
  */
 final class BytesTest extends AbstractFilterTest
 {
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported symbol 'c'.$#
-     */
     public function testFilterErrorSymbol1()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported symbol \'c\'.$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'c');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Binary symbol must be end with either 'b' or 'B', got "MiK".$#
-     */
     public function testFilterSymbol2()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Binary symbol must be end with either \'b\' or \'B\', got "MiK".$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'MiK');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Symbol must start with 'k', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', or 'Y', got "xiB".$#
-     */
     public function testFilterSymbol3()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Symbol must start with \'k\', \'K\', \'M\', \'G\', \'T\', \'P\', \'E\', \'Z\', or \'Y\', got "xiB".$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'xiB');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported symbol "__invalid__".$#
-     */
     public function testFilterSymbol4()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported symbol "__invalid__".$#');
+
         $this->callFilter($this->getEnvironment(), 1, '__invalid__');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Symbol must be binary \(b|B\[x\]\) or SI and must end with either 'b' or 'B', got "bti".$#
-     */
     public function testFilterSymbol5()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Symbol must be binary \(b|B\[x\]\) or SI and must end with either \'b\' or \'B\', got "bti".$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'bti');
     }
 
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Binary symbol must be end with either 'b' or 'B', got "bi".$#
-     */
     public function testFilterSymbol6()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Binary symbol must be end with either \'b\' or \'B\', got "bi".$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'bi');
     }
 }
