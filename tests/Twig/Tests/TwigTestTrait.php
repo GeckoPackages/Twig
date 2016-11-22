@@ -54,7 +54,7 @@ trait TwigTestTrait
         }
 
         if (count($addOn) < 1) {
-            throw new \UnexpectedValueException(sprintf('No Twig add on found to test in directory "%s".', $addOnDir));
+            throw new \UnexpectedValueException(sprintf('No Twig add-on found to test in directory "%s".', $addOnDir));
         }
 
         return $addOn;
