@@ -17,20 +17,24 @@
 final class SITest extends AbstractFilterTest
 {
     /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported symbol "X".$#
+     * @requires PHPUnit 5.2
      */
     public function testInvalidSymbol1()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported symbol "X".$#');
+
         $this->callFilter($this->getEnvironment(), 1, 'X');
     }
 
     /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported symbol "XYZ".$#
+     * @requires PHPUnit 5.2
      */
     public function testInvalidSymbol2()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported symbol "XYZ".$#');
+
         $this->callFilter($this->getEnvironment(), 2, 'XYZ');
     }
 
@@ -45,6 +49,7 @@ final class SITest extends AbstractFilterTest
             ',',
             ''
         );
+
         $this->assertInternalType('string', $result);
         $this->assertStringStartsWith('999,9999999999', $result);
         $this->assertStringEndsWith(' u', $result);

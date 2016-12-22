@@ -54,24 +54,21 @@ class AgeFilter extends \Twig_SimpleFilter
                         $v =
                             $diff->y
                             + ($diff->m / 12)
-                            + (($diff->d + (($diff->h + (($diff->i + ($diff->s / 60)) / 60)) / 24)) / 365)
-                        ;
+                            + (($diff->d + (($diff->h + (($diff->i + ($diff->s / 60)) / 60)) / 24)) / 365);
 
                         break;
                     // case 'm' is not supported by design
                     case 'd':
                         $v =
                             (int) $diff->format('%a')
-                            + (($diff->h + (($diff->i + ($diff->s / 60)) / 60)) / 24)
-                        ;
+                            + (($diff->h + (($diff->i + ($diff->s / 60)) / 60)) / 24);
 
                         break;
                     case 'h':
                         $v =
                             24 * (int) $diff->format('%a')
                             + $diff->h
-                            + (($diff->i + ($diff->s / 60)) / 60)
-                        ;
+                            + (($diff->i + ($diff->s / 60)) / 60);
 
                         break;
                     case 'i':
@@ -79,8 +76,7 @@ class AgeFilter extends \Twig_SimpleFilter
                             60 * 24 * (int) $diff->format('%a')
                             + 60 * $diff->h
                             + $diff->i
-                            + ($diff->s / 60)
-                        ;
+                            + ($diff->s / 60);
 
                         break;
                     case 's':

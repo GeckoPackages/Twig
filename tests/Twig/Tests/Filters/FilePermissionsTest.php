@@ -16,15 +16,17 @@
  */
 final class FilePermissionsTest extends AbstractFilterTest
 {
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Cannot determine permissions for "invalid".$#
-     */
     public function testFileNotExists()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Cannot determine permissions for "invalid".$#');
+
         $this->callFilter('invalid');
     }
 
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testSymLink()
     {
         $symLink = $this->getAssetsDir().'test_link';

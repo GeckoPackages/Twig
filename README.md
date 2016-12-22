@@ -30,7 +30,7 @@ See below for details.
 
 ### Requirements
 
-PHP 5.4 (PHP7 supported). Optional HHVM support >= 3.9.
+PHP 5.4 (PHP 7 supported). Optional HHVM support >= 3.9.
 
 ### Install
 

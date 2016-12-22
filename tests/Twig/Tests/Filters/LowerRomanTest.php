@@ -10,18 +10,19 @@
  */
 
 /**
+ * @requires PHPUnit 5.2
+ *
  * @author SpacePossum
  *
  * @internal
  */
 final class LowerRomanTest extends AbstractFilterTest
 {
-    /**
-     * @expectedException \Twig_Error_Runtime
-     * @expectedExceptionMessageRegExp #^Unsupported match mode string\#invalid.$#
-     */
     public function testMatchModeInvalid()
     {
+        $this->expectException(\Twig_Error_Runtime::class);
+        $this->expectExceptionMessageRegExp('#^Unsupported match mode string\#invalid.$#');
+
         $this->callFilter('IV', 'invalid');
     }
 }

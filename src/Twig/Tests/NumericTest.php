@@ -53,7 +53,6 @@ final class NumericTestNode extends \Twig_Node_Expression_Test
         $compiler
             ->raw(sprintf('(is_numeric($%s = ', $var))
             ->subcompile($this->getNode('node'))
-            ->raw(sprintf(') && (!is_string($%s) || (strlen($%s) < 2 || (\'x\' !== $%s[1] && \'X\' !== $%s[1]))))', $var, $var, $var, $var))
-        ;
+            ->raw(sprintf(') && (!is_string($%s) || (strlen($%s) < 2 || (\'x\' !== $%s[1] && \'X\' !== $%s[1]))))', $var, $var, $var, $var));
     }
 }
