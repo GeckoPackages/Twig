@@ -27,7 +27,11 @@ final class RomanNumeralsTraitTest extends \PHPUnit_Framework_TestCase
         $this->expectException(\Twig_Error_Runtime::class);
         $this->expectExceptionMessageRegExp('#^Unsupported match mode string\#__invalid__.$#');
 
-        $this->numeralRomanMatchCallBack('xx', '__invalid__', function () {
-        });
+        $this->numeralRomanMatchCallBack(
+            'xx',
+            '__invalid__',
+            function () {
+            }
+        );
     }
 }

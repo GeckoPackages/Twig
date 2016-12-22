@@ -10,14 +10,15 @@
  */
 
 /**
- * @requires PHPUnit 5.2
- *
  * @author SpacePossum
  *
  * @internal
  */
 final class AgeTest extends AbstractFilterTest
 {
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testFilterInvalidAccType()
     {
         $this->expectException(\Twig_Error_Runtime::class);
@@ -26,6 +27,9 @@ final class AgeTest extends AbstractFilterTest
         $this->callFilter($this->getEnvironment(), time(), null);
     }
 
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testFilterInvalidAccValue()
     {
         $this->expectException(\Twig_Error_Runtime::class);

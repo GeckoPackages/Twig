@@ -10,14 +10,15 @@
  */
 
 /**
- * @requires PHPUnit 5.2
- *
  * @author SpacePossum
  *
  * @internal
  */
 final class SITest extends AbstractFilterTest
 {
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testInvalidSymbol1()
     {
         $this->expectException(\Twig_Error_Runtime::class);
@@ -26,6 +27,9 @@ final class SITest extends AbstractFilterTest
         $this->callFilter($this->getEnvironment(), 1, 'X');
     }
 
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testInvalidSymbol2()
     {
         $this->expectException(\Twig_Error_Runtime::class);
@@ -45,6 +49,7 @@ final class SITest extends AbstractFilterTest
             ',',
             ''
         );
+
         $this->assertInternalType('string', $result);
         $this->assertStringStartsWith('999,9999999999', $result);
         $this->assertStringEndsWith(' u', $result);

@@ -10,8 +10,6 @@
  */
 
 /**
- * @requires PHPUnit 5.2
- *
  * @author SpacePossum
  *
  * @internal
@@ -23,6 +21,9 @@ final class UpperFirstTest extends AbstractFilterTest
         $this->callFilter($this->getEnvironment(), null);
     }
 
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testUpperFirstInvalidInput()
     {
         $this->expectException(\Twig_Error_Runtime::class);

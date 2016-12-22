@@ -10,8 +10,6 @@
  */
 
 /**
- * @requires PHPUnit 5.2
- *
  * @author SpacePossum
  *
  * @internal
@@ -26,6 +24,9 @@ final class FilePermissionsTest extends AbstractFilterTest
         $this->callFilter('invalid');
     }
 
+    /**
+     * @requires PHPUnit 5.2
+     */
     public function testSymLink()
     {
         $symLink = $this->getAssetsDir().'test_link';
