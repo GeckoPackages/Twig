@@ -42,7 +42,6 @@ return (new PhpCsFixer\Config('GeckoPackagesCS'))
         'php_unit_strict' => true,
         'phpdoc_add_missing_param_annotation' => ['only_untyped' => false],
         'phpdoc_order' => true,
-        'pow_to_exponentiation' => true,
         'protected_to_private' => true,
         'random_api_migration' => true,
         'semicolon_after_instruction' => true,

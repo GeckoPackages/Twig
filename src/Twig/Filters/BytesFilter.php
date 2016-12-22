@@ -57,9 +57,13 @@ class BytesFilter extends \Twig_SimpleFilter
         parent::__construct(
             'bytes',
             /**
-             * @param int|float $value
-             * @param string    $symbol any SI ('KB', 'Mb', ..) or binary symbol ('KiB', 'Kib', 'MiB', ..), or 'auto,SI', 'auto,bin', 'b' or 'B'
-             * @param string    $format
+             * @param Twig_Environment $env
+             * @param int|float        $number
+             * @param string           $symbol       any SI ('KB', 'Mb', ..) or binary symbol ('KiB', 'Kib', 'MiB', ..), or 'auto,SI', 'auto,bin', 'b' or 'B'
+             * @param string           $format
+             * @param int|null         $decimal
+             * @param string|null      $decimalPoint
+             * @param string|null      $thousandSep
              *
              * @return string
              */
